@@ -31,7 +31,6 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     {
         $this->mockClient->expects($this->atLeastOnce())->method('setAuth');
         $this->mockClient->expects($this->atLeastOnce())->method('setUserAgent');
-
         $client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
     }
 

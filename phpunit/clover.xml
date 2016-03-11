@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1457732604">
-  <project timestamp="1457732604">
+<coverage generated="1457733279">
+  <project timestamp="1457733279">
     <package name="BulkSmsCenter">
       <file name="/Users/Tjebbe/Sites/_github/bulksmscenter-http-api/src/BulkSmsCenter/Auth.php">
         <class name="Auth" namespace="BulkSmsCenter">

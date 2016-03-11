@@ -10,7 +10,7 @@ class AuthTest extends BaseTest {
     public function setUp()
     {
         parent::setup();
-        $this->client = new \BulkSmsCenter\Client($this->auth,$this->mockClient);
+        $this->client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
     }
 
 }

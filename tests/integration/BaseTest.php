@@ -3,9 +3,9 @@
 class BaseTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var \BulkSmsCenter\Auth
+     * @var PHPUnit_Framework_MockObject_MockObject
      */
-    protected $auth;
+    protected $mockAuth;
 
     /**
      * @var PHPUnit_Framework_MockObject_MockObject
@@ -14,7 +14,10 @@ class BaseTest extends PHPUnit_Framework_TestCase {
 
     public function setUp()
     {
-        $this->auth = new \BulkSmsCenter\Auth('YOUR_USERNAME','YOUR_PASSWORD');
+        $this->mockAuth = $this->getMockBuilder("\BulkSmsCenter\Auth")->setConstructorArgs([
+            'YOUR_USERNAME',
+            'YOUR_PASSWORD',
+        ])->getMock();
         $this->mockClient = $this->getMockBuilder("\BulkSmsCenter\HttpClient")->getMock();
     }
 

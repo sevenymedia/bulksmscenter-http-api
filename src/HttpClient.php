@@ -13,11 +13,6 @@ class HttpClient
     protected $hosts = ['api.ek-media.nl',];
 
     /**
-     * @var string
-     */
-    protected $password;
-
-    /**
      * @var int
      */
     protected $port = 443;
@@ -45,7 +40,6 @@ class HttpClient
     /**
      * @var string
      */
-    protected $username;
 
     /**
      * @var int
@@ -111,14 +105,6 @@ class HttpClient
     }
 
     /**
-     * @return string
-     */
-    protected function password()
-    {
-        return $this->password;
-    }
-
-    /**
      * @return int
      */
     protected function port()
@@ -134,11 +120,6 @@ class HttpClient
     protected function ssl()
     {
         return $this->port() === 443;
-    }
-
-    protected function username()
-    {
-        return $this->username;
     }
 
     protected function version()

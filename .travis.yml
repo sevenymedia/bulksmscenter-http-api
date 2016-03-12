@@ -19,6 +19,8 @@ matrix:
 
 before_script:
   - composer install
+sudo: false
+
 
 script:
   - phpunit

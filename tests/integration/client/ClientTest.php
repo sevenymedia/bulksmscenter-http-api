@@ -29,4 +29,10 @@ class ClientTest extends BaseTest
     {
         $this->assertInstanceOf("{$this->namespace}\Message",$this->client->getMessage());
     }
+
+    public function testGetBalance()
+    {
+        $client = new \BulkSmsCenter\Client(new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $this->assertInternalType('float',$client->getBalance());
+    }
 }

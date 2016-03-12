@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
+        "ext-openssl": "*",
         "phpunit/phpunit": "^5.2"
     },
     "autoload": {

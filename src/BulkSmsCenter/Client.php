@@ -45,7 +45,7 @@ class Client
             $this->getHttpClient()->setAuth($auth);
         }
         $this->getHttpClient()->setUserAgent([
-            'BulkSmsCenter/ApiClient/'.static::VERSION,
+            __NAMESPACE__.'/ApiClient/'.static::VERSION,
             $this->phpVersion(),
         ]);
         $this->setMessage(new Message());

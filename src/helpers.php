@@ -20,8 +20,19 @@ function env($key,$default = null) {
         case '(null)':
             return;
     }
+
     if ($value[0] === '"' && $value[strlen($value)-1] === '"') {
         return substr($value,1,-1);
     }
     return $value;
+}
+
+function str_random($length = 16) {
+    $string = '';
+    while (($len = strlen($string)) < $length) {
+        $size = $length - $len;
+        $bytes = openssl_random_pseudo_bytes($size);
+        $string .= substr(str_replace(['/','+','='],'',base64_encode($bytes)),0,$size);
+    }
+    return $string;
 }

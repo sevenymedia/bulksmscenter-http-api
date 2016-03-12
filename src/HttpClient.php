@@ -1,5 +1,8 @@
 <?php namespace BulkSmsCenter;
 
+use BulkSmsCenter\Exceptions\HttpClientException;
+use GuzzleHttp\Psr7\Response;
+
 class HttpClient
 {
     /**

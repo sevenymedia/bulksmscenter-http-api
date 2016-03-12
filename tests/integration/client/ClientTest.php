@@ -19,4 +19,14 @@ class ClientTest extends BaseTest
         $this->assertInstanceOf("{$this->namespace}\HttpClient",$client->getHttpClient());
         $this->assertInstanceOf("{$this->namespace}\Message",$client->getMessage());
     }
+
+    public function testGetHttpClient()
+    {
+        $this->assertInstanceOf("{$this->namespace}\HttpClient",$this->client->getHttpClient());
+    }
+
+    public function testGetMessage()
+    {
+        $this->assertInstanceOf("{$this->namespace}\Message",$this->client->getMessage());
+    }
 }

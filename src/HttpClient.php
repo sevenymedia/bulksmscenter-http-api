@@ -171,7 +171,7 @@ class HttpClient
         foreach ($this->hosts() as $host) {
             $response = $this->setResponse((new \GuzzleHttp\Client())->request('GET',"{$this->protocol()}://{$host}",[
                 'query' => $data,
-                'verify' => __DIR__.DIRECTORY_SEPARATOR.'cacert.pem',
+                'verify' => false,
             ]))->getResponse();
             if ($response->getStatusCode() !== 200) {
                 throw new HttpClientException("Did not receive '200 OK' from {$host}");

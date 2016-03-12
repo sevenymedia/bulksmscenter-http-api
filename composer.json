@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "ext-openssl": "*",
-        "phpunit/phpunit": "^5.2",
+        "phpunit/phpunit": "^4.8|^5.2",
         "vlucas/phpdotenv": "^2.2"
     },
     "autoload": {

@@ -135,12 +135,13 @@ class Client
 
     public function getBalance()
     {
-        if (($request = $this->runCommand('get_credits')) === false) {
+        $httpClient = $this->getHttpClient();
+        if ($httpClient->runCommand('get_credits') === false) {
             return false;
         }
-        $response = $this->parseRawResponse($request->getBody()->getContent());
-        if (isset($response['APIscredits'])) {
-            return (int)$response['APIscredits'];
+        $response = $httpClient->getApiResponse();
+        if (isset($response['APIcredits'])) {
+            return (float)$response['APIcredits'];
         }
         return false;
     }

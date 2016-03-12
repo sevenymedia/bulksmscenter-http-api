@@ -2,6 +2,7 @@
 
 
 ### PROJECT SPECIFIC
+.env
 *.sample*
 phpunit/coverage/
 

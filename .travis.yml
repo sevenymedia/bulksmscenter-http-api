@@ -8,6 +8,10 @@ php:
   - hhvm
   - nightly
 
+env:
+  global:
+    - setup=basic
+
 matrix:
   allow_failures:
     - php: nightly

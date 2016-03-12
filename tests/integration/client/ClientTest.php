@@ -1,7 +1,7 @@
 <?php
 
-class ClientTest extends BaseTest {
-
+class ClientTest extends BaseTest
+{
     /**
      * @var \BulkSmsCenter\Client
      */
@@ -12,5 +12,4 @@ class ClientTest extends BaseTest {
         parent::setup();
         $this->client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
     }
-
 }

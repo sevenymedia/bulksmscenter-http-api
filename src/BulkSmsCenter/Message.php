@@ -1,7 +1,7 @@
 <?php namespace BulkSmsCenter;
 
-class Message {
-
+class Message
+{
     /**
      * @var string
      */
@@ -120,5 +120,4 @@ class Message {
     {
         $this->sender = $sender;
     }
-
 }

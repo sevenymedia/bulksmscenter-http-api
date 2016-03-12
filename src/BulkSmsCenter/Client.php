@@ -2,8 +2,8 @@
 
 use BulkSmsCenter\Exceptions\ClientException;
 
-class Client {
-
+class Client
+{
     const VERSION = '0.1';
 
     const ROUTE_DIRECT = 'direct';
@@ -149,5 +149,4 @@ class Client {
     {
         return $this->response ?: $this->response = $this->parseRawResponse();
     }
-
 }

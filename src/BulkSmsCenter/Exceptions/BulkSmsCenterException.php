@@ -6,4 +6,5 @@
  * @package BulkSmsCenter\Exceptions
  */
 abstract class BulkSmsCenterException extends \Exception
-{}
+{
+}

@@ -1,7 +1,7 @@
 <?php namespace BulkSmsCenter;
 
-class Auth {
-
+class Auth
+{
     /**
      * @var string
      */
@@ -53,5 +53,4 @@ class Auth {
         $this->username = trim($username);
         return $this;
     }
-
 }

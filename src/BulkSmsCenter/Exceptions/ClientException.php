@@ -6,4 +6,5 @@
  * @package BulkSmsCenter\Exceptions
  */
 class ClientException extends BulkSmsCenterException
-{}
+{
+}

@@ -1,7 +1,7 @@
 <?php
 
-class BaseTest extends PHPUnit_Framework_TestCase {
-
+class BaseTest extends PHPUnit_Framework_TestCase
+{
     /**
      * @var PHPUnit_Framework_MockObject_MockObject
      */
@@ -33,5 +33,4 @@ class BaseTest extends PHPUnit_Framework_TestCase {
         $this->mockClient->expects($this->atLeastOnce())->method('setUserAgent');
         $client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
     }
-
 }

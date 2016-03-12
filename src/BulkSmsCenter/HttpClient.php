@@ -1,9 +1,7 @@
 <?php namespace BulkSmsCenter;
 
-use BulkSmsCenter\Exceptions\ClientException;
-
-class HttpClient {
-
+class HttpClient
+{
     /**
      * @var Auth
      */
@@ -194,5 +192,4 @@ class HttpClient {
     {
         return $this->response ?: $this->response = $this->parseRawResponse();
     }
-
 }

@@ -6,4 +6,5 @@
  * @package BulkSmsCenter\Exceptions
  */
 class HttpClientException extends BulkSmsCenterException
-{}
+{
+}

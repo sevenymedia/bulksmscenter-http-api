@@ -33,7 +33,6 @@ class ClientTest extends BaseTest
     public function testGetBalance()
     {
         $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
-        var_dump($auth);
         $this->assertInternalType('float',$client->getBalance());
     }
 }

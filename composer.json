@@ -22,7 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BulkSmsCenter\\": "src/BulkSmsCenter/"
+            "BulkSmsCenter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BulkSmsCenter\\Tests\\": "tests/"
         }
     }
 }

@@ -168,10 +168,23 @@ class HttpClient
             'command' => $command,
         ],$data);
         foreach ($this->hosts() as $host) {
-            $response = $this->setResponse((new \GuzzleHttp\Client())->request('GET',"{$this->protocol()}://{$host}",[
-                'query' => $data,
-                'verify' => false,
-            ]))->getResponse();
+            $client = new \GuzzleHttp\Client();
+
+            if (method_exists($client,'request')) {
+                // Guzzle 6
+                $response = $client->request('GET',"{$this->protocol()}://{$host}",[
+                    'query' => $data,
+                    'verify' => false,
+                ]);
+            } else {
+                // Guzzle 5
+                $response = $client->send($client->createRequest('GET',"{$this->protocol()}://{$host}",[
+                    'query' => $data,
+                    'verify' => false,
+                ]));
+            }
+
+            $response = $this->setResponse($response)->getResponse();
             if ($response->getStatusCode() !== 200) {
                 throw new HttpClientException("Did not receive '200 OK' from {$host}");
             }

@@ -7,12 +7,6 @@ class AuthTest extends BaseTest
      */
     protected $client;
 
-    public function setUp()
-    {
-        parent::setup();
-        $this->client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
-    }
-
     public function testConstructor()
     {
         $auth = new \BulkSmsCenter\Auth('YOUR_USERNAME','YOUR_PASSWORD');

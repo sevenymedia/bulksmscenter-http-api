@@ -36,24 +36,24 @@ class Client
         return 'PHP/'.PHP_VERSION_ID;
     }
 
-    protected function httpClient()
-    {
-        return $this->httpClient ?: $this->httpClient = new HttpClient();
-    }
-
     public function __construct(Auth $auth = null,HttpClient $httpClient = null)
     {
         if ($httpClient !== null) {
             $this->setHttpClient($httpClient);
         }
         if ($auth !== null) {
-            $this->httpClient()->setAuth($auth);
+            $this->getHttpClient()->setAuth($auth);
         }
-        $this->httpClient()->setUserAgent([
+        $this->getHttpClient()->setUserAgent([
             'BulkSmsCenter/ApiClient/'.static::VERSION,
             $this->phpVersion(),
         ]);
         $this->setMessage(new Message());
+    }
+
+    public function getHttpClient()
+    {
+        return $this->httpClient ?: $this->httpClient = new HttpClient();
     }
 
     /**

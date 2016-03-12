@@ -133,7 +133,7 @@ class Client
         return (isset($response['APIcode']) ? $response['APIcode'] : 0000);
     }
 
-    public function getRemainingCredits()
+    public function getBalance()
     {
         if (($request = $this->runCommand('get_credits')) === false) {
             return false;

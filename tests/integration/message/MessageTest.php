@@ -2,6 +2,17 @@
 
 class MessageTest extends BaseTest
 {
+    protected function strRandom($length = 16)
+    {
+        $string = '';
+        while (($len = strlen($string)) < $length) {
+            $size = $length - $len;
+            $bytes = random_bytes($size);
+            $string .= substr(str_replace(['/','+','='],'',base64_encode($bytes)),0,$size);
+        }
+        return $string;
+    }
+
     public function testConstructor()
     {
         $message = new \BulkSmsCenter\Message();
@@ -20,7 +31,7 @@ class MessageTest extends BaseTest
     public function testConstructorWithSetterOption()
     {
         $message = new \BulkSmsCenter\Message($options = [
-            $key = 'id' => str_random(32),
+            $key = 'id' => $this->strRandom(),
         ]);
         $this->assertEquals($options[$key],$message->getId());
     }
@@ -28,14 +39,14 @@ class MessageTest extends BaseTest
     public function testSetGetId()
     {
         $message = new \BulkSmsCenter\Message();
-        $message->setId($expected = str_random(32));
+        $message->setId($expected = $this->strRandom(32));
         $this->assertEquals($expected,$message->getId());
     }
 
     public function testSetGetBody()
     {
         $message = new \BulkSmsCenter\Message();
-        $message->setBody($expected = str_random(160));
+        $message->setBody($expected = $this->strRandom(160));
         $this->assertEquals($expected,$message->getBody());
     }
 

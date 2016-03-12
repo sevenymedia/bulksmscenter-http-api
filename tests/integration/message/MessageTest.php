@@ -20,7 +20,7 @@ class MessageTest extends BaseTest
     public function testConstructorWithSetterOption()
     {
         $message = new \BulkSmsCenter\Message($options = [
-            $key = 'id' => $this->strRandom(),
+            $key = 'id' => str_random(),
         ]);
         $this->assertEquals($options[$key],$message->getId());
     }
@@ -28,14 +28,14 @@ class MessageTest extends BaseTest
     public function testSetGetId()
     {
         $message = new \BulkSmsCenter\Message();
-        $message->setId($expected = $this->strRandom(32));
+        $message->setId($expected = str_random(32));
         $this->assertEquals($expected,$message->getId());
     }
 
     public function testSetGetBody()
     {
         $message = new \BulkSmsCenter\Message();
-        $message->setBody($expected = $this->strRandom(160));
+        $message->setBody($expected = str_random(160));
         $this->assertEquals($expected,$message->getBody());
     }
 

@@ -144,9 +144,4 @@ class Client
         }
         return false;
     }
-
-    public function getResponse()
-    {
-        return $this->response ?: $this->response = $this->parseRawResponse();
-    }
 }

@@ -17,11 +17,10 @@ matrix:
     - php: nightly
   fast_finish: true
   include:
-    - php: 5.4 5.5
+    - php: 5.4
       env: setup=lowest
-#    - os: linux
-#      dist: trusty
-#      sudo: required
+    - php: 5.5
+      env: setup=lowest
 #    - os: osx
 #      osx_image: xcode7.2
 

@@ -129,7 +129,7 @@ class Client
 
     public function getApiCode()
     {
-        $response = $this->getResponse();
+        $response = $this->getHttpClient()->getResponse();
         return (isset($response['APIcode']) ? $response['APIcode'] : 0000);
     }
 

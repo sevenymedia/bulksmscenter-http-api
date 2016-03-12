@@ -16,7 +16,7 @@ class AuthTest extends BaseTest
     public function testConstructor()
     {
         $auth = new \BulkSmsCenter\Auth('YOUR_USERNAME','YOUR_PASSWORD');
-        $this->assertInstanceOf('BulkSmsCenter\Auth',$auth);
+        $this->assertInstanceOf("{$this->namespace}\Auth",$auth);
     }
 
     public function testGetPassword()

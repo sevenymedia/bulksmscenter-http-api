@@ -26,13 +26,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $this->mockClient = $this->getMockBuilder('\\'.$this->namespace.'\\HttpClient')->getMock();
     }
 
-    public function testConstructor()
-    {
-        $client = new \BulkSmsCenter\Client();
-        $this->assertInstanceOf("{$this->namespace}\HttpClient",$client->getHttpClient());
-        $this->assertInstanceOf("{$this->namespace}\Message",$client->getMessage());
-    }
-
     public function testHttpClientMock()
     {
         $this->mockClient->expects($this->atLeastOnce())->method('setAuth');

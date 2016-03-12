@@ -71,22 +71,6 @@ class HttpClient
         return $this->hosts;
     }
 
-    protected function runCommand($command,$data = [])
-    {
-        $data = array_merge($this->defaultPostParams(),[
-            'command' => $command,
-        ],$data);
-        foreach ($this->hosts() as $host) {
-            $request = (new \GuzzleHttp\Client())->request('GET',"{$this->protocol()}://{$host}",[
-                'query' => $data,
-            ]);
-            if ($request->getStatusCode() !== 200) {
-                return false;
-            }
-            return $request;
-        }
-    }
-
     /**
      * @param string|null $rawResponse
      *
@@ -172,6 +156,24 @@ class HttpClient
         }
         $this->userAgent = $userAgent;
         return $this;
+    }
+
+    public function runCommand($command,$data = [])
+    {
+        $data = array_merge($this->defaultPostParams(),[
+            'command' => $command,
+        ],$data);
+        foreach ($this->hosts() as $host) {
+            $response = $this->setResponse((new \GuzzleHttp\Client())->request('GET',"{$this->protocol()}://{$host}",[
+                'query' => $data,
+            ]))->getResponse();
+            if ($response->getStatusCode() !== 200) {
+                throw new HttpClientException("Did not receive '200 OK' from {$host}");
+            }
+            $this->setRawResponse($response->getBody()->getContents());
+            return true;
+        }
+        return false;
     }
 
     public function getResponse()

@@ -12,4 +12,4 @@ matrix:
 
 script:
   - phpunit
-  - php ./phpunit/coverage-check.php ./phpunit/clover.xml 80
+#  - php ./phpunit/coverage-check.php ./phpunit/clover.xml 80

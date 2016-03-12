@@ -12,6 +12,11 @@ class BaseTest extends PHPUnit_Framework_TestCase
      */
     protected $mockClient;
 
+    /**
+     * @var string
+     */
+    protected $namespace = 'BulkSmsCenter';
+
     public function setUp()
     {
         $this->mockAuth = $this->getMockBuilder("\BulkSmsCenter\Auth")->setConstructorArgs([

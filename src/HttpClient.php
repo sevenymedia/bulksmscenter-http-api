@@ -1,7 +1,6 @@
 <?php namespace BulkSmsCenter;
 
 use BulkSmsCenter\Exceptions\HttpClientException;
-use GuzzleHttp\Psr7\Response;
 
 class HttpClient
 {
@@ -125,7 +124,7 @@ class HttpClient
         $this->rawResponse = $rawResponse;
     }
 
-    protected function setResponse(Response $response)
+    protected function setResponse($response)
     {
         $this->response = $response;
         return $this;

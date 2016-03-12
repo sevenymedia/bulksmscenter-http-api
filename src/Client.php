@@ -140,7 +140,6 @@ class Client
             return false;
         }
         $response = $httpClient->getApiResponse();
-        var_dump($response);
         if (isset($response['APIcredits'])) {
             return (float)$response['APIcredits'];
         }

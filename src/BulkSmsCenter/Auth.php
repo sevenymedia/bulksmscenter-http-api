@@ -24,7 +24,9 @@ class Auth
     public function getPassword()
     {
         return $this->password;
-    }/**
+    }
+
+    /**
      * @param $password
      *
      * @return $this

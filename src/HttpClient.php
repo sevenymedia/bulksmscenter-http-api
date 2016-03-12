@@ -46,14 +46,19 @@ class HttpClient
      */
     protected $version = 1;
 
+    public function auth()
+    {
+        return $this->auth;
+    }
+
     /**
      * @return array
      */
     protected function defaultPostParams()
     {
         return [
-            'password' => $this->password(),
-            'username' => $this->username(),
+            'password' => $this->auth()->getPassword(),
+            'username' => $this->auth()->getUsername(),
             'version' => $this->version(),
         ];
     }

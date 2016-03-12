@@ -1,5 +1,8 @@
 <?php
 
+// Load dependencies
+require __DIR__.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+
 spl_autoload_register(function ($class) {
     $prefix = 'BulkSmsCenter\\';
     $baseDirectory = __DIR__.'/src/BulkSmsCenter/';
@@ -21,3 +24,12 @@ spl_autoload_register(function ($class) {
         require $file;
     }
 });
+
+
+if (class_exists('Dotenv\Dotenv',true)) {
+    try {
+        (new Dotenv\Dotenv(__DIR__))->load();
+    } catch (Dotenv\Exception\InvalidPathException $exception) {
+        //
+    }
+}

@@ -31,18 +31,19 @@ class HttpClient
     protected $rawResponse;
 
     /**
-     * @var array
+     * @var Response
      */
     protected $response;
+
+    /**
+     * @var array
+     */
+    protected $apiResponse;
 
     /**
      * @var string
      */
     protected $userAgent;
-
-    /**
-     * @var string
-     */
 
     /**
      * @var int
@@ -124,9 +125,10 @@ class HttpClient
         $this->rawResponse = $rawResponse;
     }
 
-    protected function getRawResponse()
+    protected function setResponse(Response $response)
     {
-        return $this->rawResponse;
+        $this->response = $response;
+        return $this;
     }
 
     public function __construct(Auth $auth = null)
@@ -181,6 +183,16 @@ class HttpClient
 
     public function getResponse()
     {
-        return $this->response ?: $this->response = $this->parseRawResponse();
+        return $this->response;
+    }
+
+    public function getRawResponse()
+    {
+        return $this->rawResponse;
+    }
+
+    public function getApiResponse()
+    {
+        return $this->apiResponse ?: $this->apiResponse = $this->parseRawResponse();
     }
 }

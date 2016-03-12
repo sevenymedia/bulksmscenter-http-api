@@ -1,7 +1,8 @@
 <?php
 
 if (!function_exists('env')) {
-    function env($key,$default = null) {
+    function env($key,$default = null)
+    {
         $value = getenv($key);
         if ($value === false) {
             return value($default);
@@ -30,7 +31,8 @@ if (!function_exists('env')) {
 }
 
 if (!function_exists('str_random')) {
-    function str_random($length = 16) {
+    function str_random($length = 16)
+    {
         $string = '';
         while (($len = strlen($string)) < $length) {
             $size = $length - $len;

@@ -3,7 +3,7 @@
 if (!function_exists('env')) {
     function env($key,$default = null)
     {
-        var_dump($_ENV);
+        var_dump(getenv('USERNAME'));
         $value = getenv($key);
         if ($value === false) {
             return value($default);

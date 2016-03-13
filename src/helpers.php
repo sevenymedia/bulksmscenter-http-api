@@ -42,3 +42,10 @@ if (!function_exists('str_random')) {
         return $string;
     }
 }
+
+if (! function_exists('value')) {
+    function value($value)
+    {
+        return $value instanceof Closure ? $value() : $value;
+    }
+}

@@ -1,5 +1,7 @@
 <?php namespace BulkSmsCenter;
 
+use BulkSmsCenter\Exceptions\MessageException;
+
 class Message
 {
     const TYPE_DIRECT = 'direct';
@@ -134,9 +136,13 @@ class Message
      * @param $route
      *
      * @return $this
+     * @throws MessageException
      */
     public function setRoute($route)
     {
+        if (!in_array($route,[static::TYPE_DIRECT,static::TYPE_PREMIUM,])) {
+            throw new MessageException('Invalid route');
+        }
         $this->route = $route;
         return $this;
     }

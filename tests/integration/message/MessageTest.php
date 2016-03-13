@@ -81,11 +81,4 @@ class MessageTest extends BaseTest
         $message->setSent(true);
         $this->assertTrue($message->getSent());
     }
-
-    public function testGetStatusException()
-    {
-        $message = new \BulkSmsCenter\Message();
-        $this->expectException($this->exception);
-        $message->getStatus();
-    }
 }

@@ -13,6 +13,11 @@ class BaseTest extends PHPUnit_Framework_TestCase
     protected $mockClient;
 
     /**
+     * @var PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $mockMessage;
+
+    /**
      * @var string
      */
     protected $namespace = 'BulkSmsCenter';
@@ -33,6 +38,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
             'YOUR_PASSWORD',
         ])->getMock();
         $this->mockClient = $this->getMockBuilder('\\'.$this->namespace.'\\HttpClient')->getMock();
+        $this->mockMessage = $this->getMockBuilder('\\'.$this->namespace.'\\Message')->getMock();
     }
 
     public function testEnvDefault()

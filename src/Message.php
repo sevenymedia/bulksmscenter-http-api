@@ -2,6 +2,9 @@
 
 class Message
 {
+    const TYPE_DIRECT = 'direct';
+    const TYPE_PREMIUM = 'premium';
+
     /**
      * @var string
      */

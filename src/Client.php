@@ -113,14 +113,6 @@ class Client
     }
 
     /**
-     * @return bool
-     */
-    public function sendingPassed()
-    {
-        return $this->getApiCode() === 1000;
-    }
-
-    /**
      * @param Message|null $message
      *
      * @return $this

@@ -155,12 +155,6 @@ class Client
         return true;
     }
 
-    public function getApiCode()
-    {
-        $response = $this->getHttpClient()->getResponse();
-        return (isset($response['APIcode']) ? $response['APIcode'] : 0000);
-    }
-
     public function getBalance()
     {
         $httpClient = $this->getHttpClient();

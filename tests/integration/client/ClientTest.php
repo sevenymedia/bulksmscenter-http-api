@@ -45,6 +45,12 @@ class ClientTest extends BaseTest
         $this->assertInternalType('float',$client->getBalance());
     }
 
+    public function testGetMessageStatusException()
+    {
+        $this->expectException($this->exception);
+        $this->client->getMessageStatus(env('TEST_MESSAGE_ID'));
+    }
+
     public function testSendWithoutMessage()
     {
         $oldMessage = $this->client->getMessage();

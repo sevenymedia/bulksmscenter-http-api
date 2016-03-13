@@ -67,14 +67,6 @@ class HttpClient
     }
 
     /**
-     * @return array
-     */
-    protected function hosts()
-    {
-        return $this->hosts;
-    }
-
-    /**
      * @param string|null $rawResponse
      *
      * @return array
@@ -149,6 +141,30 @@ class HttpClient
     }
 
     /**
+     * @return array
+     */
+    public function getHosts()
+    {
+        return $this->hosts;
+    }
+
+    /**
+     * @param $hosts
+     *
+     * @return $this
+     */
+    public function setHosts($hosts)
+    {
+        $this->hosts = $hosts;
+        return $this;
+    }
+
+    public function addHost($host)
+    {
+        $this->hosts[] = $host;
+    }
+
+    /**
      * @param string|array $userAgent
      *
      * @return $this
@@ -167,7 +183,7 @@ class HttpClient
         $data = array_merge($this->defaultPostParams(),[
             'command' => $command,
         ],$data);
-        foreach ($this->hosts() as $host) {
+        foreach ($this->getHosts() as $host) {
             $client = new \GuzzleHttp\Client();
 
             if (method_exists($client,'request')) {

@@ -3,10 +3,10 @@
 if (!extension_loaded('xdebug')) {
     die('The Xdebug extension is not loaded. No code coverage will be generated.');
 }
-if (!file_exists($strInputFile = $argv[1])) {
+if (!file_exists($inputFile = $argv[1])) {
     throw new InvalidArgumentException('Invalid input file provided');
 }
-if (!($fltPercentage = min(100,max(0,(int)$argv[2])))) {
+if (!($percentage = min(100,max(0,(int)$argv[2])))) {
     throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
 }
 

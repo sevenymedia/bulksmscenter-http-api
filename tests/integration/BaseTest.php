@@ -22,12 +22,18 @@ class BaseTest extends PHPUnit_Framework_TestCase
      */
     protected $namespace = 'BulkSmsCenter';
 
-    public function expectException($exception)
+    public function expectException($exception,$message = '',$code = null)
     {
         if (version_compare(PHPUnit_Runner_Version::id(),'5.2') === -1) {
-            $this->setExpectedException($exception);
+            $this->setExpectedException($exception,$message,$code);
         } else {
             parent::expectException($exception);
+            if (!empty($message)) {
+                parent::expectExceptionMessage($message);
+            }
+            if ($code !== null) {
+                parent::expectExceptionCode($code);
+            }
         }
     }
 

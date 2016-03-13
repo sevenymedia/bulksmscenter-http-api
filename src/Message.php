@@ -8,6 +8,11 @@ class Message
     const TYPE_PREMIUM = 'premium';
 
     /**
+     * @var HttpClient
+     */
+    private $httpClient;
+
+    /**
      * @var string
      */
     protected $id;
@@ -41,6 +46,25 @@ class Message
      * @var boolean
      */
     protected $sent;
+
+    /**
+     * @return HttpClient
+     */
+    private function getHttpClient()
+    {
+        return $this->httpClient;
+    }
+
+    /**
+     * @param HttpClient $httpClient
+     *
+     * @return $this
+     */
+    private function setHttpClient(HttpClient $httpClient)
+    {
+        $this->httpClient = $httpClient;
+        return $this;
+    }
 
     public function __construct(array $arrOptions = [])
     {

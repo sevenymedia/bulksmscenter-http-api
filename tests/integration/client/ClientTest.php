@@ -53,4 +53,10 @@ class ClientTest extends BaseTest
         $this->client->clearMessage()->sendMessage();
         $this->client->setMessage($oldMessage);
     }
+
+    public function testSendMessageException()
+    {
+        $this->expectException($this->exception);
+        $this->client->sendMessage($this->mockMessage);
+    }
 }

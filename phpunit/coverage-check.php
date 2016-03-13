@@ -1,5 +1,8 @@
 <?php
 
+if (!extension_loaded('xdebug')) {
+    die('The Xdebug extension is not loaded. No code coverage will be generated.');
+}
 if (!file_exists($strInputFile = $argv[1])) {
     throw new InvalidArgumentException('Invalid input file provided');
 }

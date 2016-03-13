@@ -23,9 +23,7 @@ env:
 
 matrix:
   allow_failures:
-    - php:
-      - hhvm
-      - nightly
+    - php: nightly
   fast_finish: true
   include:
     - php: 5.4

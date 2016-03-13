@@ -1,4 +1,4 @@
-<?php
+<?php namespace BulkSmsCenter\Tests;
 
 class MessageTest extends BaseTest
 {

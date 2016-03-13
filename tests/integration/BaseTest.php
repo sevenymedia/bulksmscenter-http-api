@@ -1,19 +1,19 @@
-<?php
+<?php namespace BulkSmsCenter\Tests;
 
-class BaseTest extends PHPUnit_Framework_TestCase
+class BaseTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject
      */
     protected $mockAuth;
 
     /**
-     * @var PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject
      */
     protected $mockClient;
 
     /**
-     * @var PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit_Framework_MockObject_MockObject
      */
     protected $mockMessage;
 
@@ -24,7 +24,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
     public function expectException($exception,$message = '',$code = null)
     {
-        if (version_compare(PHPUnit_Runner_Version::id(),'5.2') === -1) {
+        if (version_compare(\PHPUnit_Runner_Version::id(),'5.2') === -1) {
             $this->setExpectedException($exception,$message,$code);
         } else {
             parent::expectException($exception);

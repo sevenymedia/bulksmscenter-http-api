@@ -46,12 +46,6 @@ class ClientTest extends BaseTest
         $client->getBalance();
     }
 
-    public function testSendWithMessage()
-    {
-        $this->client->sendMessage($this->mockMessage);
-        $this->assertInstanceOf("{$this->namespace}\Message",$this->client->getMessage());
-    }
-
     public function testSendWithoutMessage()
     {
         $oldMessage = $this->client->getMessage();

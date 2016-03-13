@@ -170,7 +170,7 @@ class Message
     public function setRoute($route)
     {
         if (!in_array($route,[static::TYPE_DIRECT,static::TYPE_PREMIUM,])) {
-            throw new MessageException('Invalid route');
+            throw new MessageException(MessageException::MESSAGE__INVALID_ROUTE,MessageException::CODE__INVALID_ROUTE);
         }
         $this->route = $route;
         return $this;

@@ -53,6 +53,13 @@ class MessageTest extends BaseTest
         $this->assertEquals($expected,$message->getRoute());
     }
 
+    public function testSetInvalidRoute()
+    {
+        $message = new \BulkSmsCenter\Message();
+        $this->expectException("{$this->namespace}\Exceptions\MessageException");
+        $message->setRoute('test');
+    }
+
     public function testSetGetSender()
     {
         $message = new \BulkSmsCenter\Message();

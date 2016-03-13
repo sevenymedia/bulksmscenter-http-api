@@ -36,6 +36,12 @@ class ClientTest extends BaseTest
         $this->assertInternalType('float',$client->getBalance());
     }
 
+    public function testSendWithMessage()
+    {
+        $this->client->sendMessage($this->mockMessage);
+        $this->assertInstanceOf("{$this->namespace}\Message",$this->client->getMessage());
+    }
+
     public function testSendWithoutMessage()
     {
         $exception = "{$this->namespace}\Exceptions\ClientException";

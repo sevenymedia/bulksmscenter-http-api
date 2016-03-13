@@ -26,6 +26,39 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $this->mockClient = $this->getMockBuilder('\\'.$this->namespace.'\\HttpClient')->getMock();
     }
 
+    public function testEnvDefault()
+    {
+        $this->assertTrue(env('TEST_NON_EXISTING_VARIABLE',true));
+    }
+
+    public function testEnvEmpty()
+    {
+        $this->assertEmpty(env('TEST_EMPTY'));
+    }
+
+    public function testEnvFalse()
+    {
+        $this->assertFalse(env('TEST_FALSE'));
+    }
+
+    public function testEnvNull()
+    {
+        $this->assertNull(env('TEST_NULL'));
+    }
+
+    public function testEnvQuotes()
+    {
+        $key = 'TEST_QUOTES';
+        $value = 'quotes';
+        putenv($key.'="'.$value.'"');
+        $this->assertEquals($value,env($key));
+    }
+
+    public function testEnvTrue()
+    {
+        $this->assertTrue(env('TEST_TRUE'));
+    }
+
     public function testHttpClientMock()
     {
         $this->mockClient->expects($this->atLeastOnce())->method('setAuth');

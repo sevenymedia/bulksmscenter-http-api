@@ -169,4 +169,24 @@ class Client
 
         return false;
     }
+
+    public function getMessageStatus($messageId)
+    {
+        $httpClient = $this->getHttpClient();
+        if ($httpClient->runCommand('sms_get_dlr',[
+                'smsid' => $messageId,
+            ]) === false) {
+            return false;
+        }
+
+        $response = $httpClient->getApiResponse();
+        if ($this->validApiCode() === false) {
+            throw new ClientException(
+                sprintf(ClientException::MESSAGE__INVALID_API_CODE,$response[static::RESPONSE_KEY__CODE]),
+                ClientException::CODE__INVALID_API_CODE
+            );
+        }
+
+
+    }
 }

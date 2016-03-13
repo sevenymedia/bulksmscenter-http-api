@@ -124,7 +124,7 @@ class Client
             $this->setMessage($message);
         }
         if (!($message = $this->getMessage()) instanceof Message) {
-            throw new ClientException('No message set');
+            throw new ClientException(ClientException::MESSAGE__NO_MESSAGE_SET,ClientException::CODE__NO_MESSAGE_SET);
         }
 
         $httpClient = $this->getHttpClient();
@@ -140,7 +140,10 @@ class Client
 
         $response = $httpClient->getApiResponse();
         if ($this->validApiCode() === false) {
-            throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
+            throw new ClientException(
+                sprintf(ClientException::MESSAGE__INVALID_API_CODE,$response[static::RESPONSE_KEY__CODE]),
+                ClientException::CODE__INVALID_API_CODE
+            );
         }
 
         $message->setId($response[static::RESPONSE_KEY__ID])->setSent();
@@ -156,7 +159,10 @@ class Client
 
         $response = $httpClient->getApiResponse();
         if ($this->validApiCode() === false) {
-            throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
+            throw new ClientException(
+                sprintf(ClientException::MESSAGE__INVALID_API_CODE,$response[static::RESPONSE_KEY__CODE]),
+                ClientException::CODE__INVALID_API_CODE
+            );
         } elseif (isset($response[$key = static::RESPONSE_KEY__CREDITS])) {
             return (float)$response[$key];
         }

@@ -186,8 +186,10 @@ class Client
                 sprintf(ClientException::MESSAGE__INVALID_API_CODE,$response[static::RESPONSE_KEY__CODE]),
                 ClientException::CODE__INVALID_API_CODE
             );
+        } elseif (isset($response[$key = static::RESPONSE_KEY__STATUS])) {
+            return (int)$response[$key];
         }
 
-
+        return false;
     }
 }

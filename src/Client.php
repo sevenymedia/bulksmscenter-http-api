@@ -162,12 +162,14 @@ class Client
         if ($httpClient->runCommand('get_credits') === false) {
             return false;
         }
+
         $response = $httpClient->getApiResponse();
         if ($this->validApiCode() === false) {
             throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
         } elseif (isset($response[$key = static::RESPONSE_KEY__CREDITS])) {
             return (float)$response[$key];
         }
+
         return false;
     }
 }

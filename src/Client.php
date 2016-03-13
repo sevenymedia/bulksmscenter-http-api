@@ -164,8 +164,7 @@ class Client
         $response = $httpClient->getApiResponse();
         if ($this->validApiCode() === false) {
             throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
-        }
-        if (isset($response[$key = static::RESPONSE_KEY__CREDITS])) {
+        } elseif (isset($response[$key = static::RESPONSE_KEY__CREDITS])) {
             return (float)$response[$key];
         }
         return false;

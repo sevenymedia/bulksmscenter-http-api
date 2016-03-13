@@ -39,6 +39,13 @@ class ClientTest extends BaseTest
         $this->assertInternalType('float',$client->getBalance());
     }
 
+    public function testGetBalanceException()
+    {
+        $client = new \BulkSmsCenter\Client($this->mockAuth);
+        $this->expectException($this->exception);
+        $client->getBalance();
+    }
+
     public function testSendWithMessage()
     {
         $this->client->sendMessage($this->mockMessage);

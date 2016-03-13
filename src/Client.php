@@ -75,6 +75,12 @@ class Client
         return $this->message;
     }
 
+    public function clearMessage()
+    {
+        $this->message = null;
+        return $this;
+    }
+
     /**
      * @param Message $message
      *

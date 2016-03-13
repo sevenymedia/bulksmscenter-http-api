@@ -18,6 +18,13 @@ class HttpClientTest extends BaseTest
         $this->assertInstanceOf("{$this->namespace}\HttpClient",$httpClient);
     }
 
+    public function testSetGetHosts()
+    {
+        $httpClient = new \BulkSmsCenter\HttpClient($this->mockAuth);
+        $httpClient->setHosts($expected = ['api1.google.nl','api1.google.nl',]);
+        $this->assertEquals($expected,$httpClient->getHosts());
+    }
+
 //    public function testInvalidCommand()
 //    {
 //        $httpClient = new \BulkSmsCenter\HttpClient($this->mockAuth);

@@ -46,6 +46,13 @@ class MessageTest extends BaseTest
         $this->assertEquals($expected,$message->getRecipient());
     }
 
+    public function testSetGetRoute()
+    {
+        $message = new \BulkSmsCenter\Message();
+        $message->setRoute($expected = $message::TYPE_PREMIUM);
+        $this->assertEquals($expected,$message->getRoute());
+    }
+
     public function testSetGetSender()
     {
         $message = new \BulkSmsCenter\Message();

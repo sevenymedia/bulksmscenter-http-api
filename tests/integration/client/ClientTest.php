@@ -33,17 +33,17 @@ class ClientTest extends BaseTest
         $this->assertInstanceOf("{$this->namespace}\Message",$this->client->getMessage());
     }
 
-    public function testGetBalance()
-    {
-        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
-        $this->assertInternalType('float',$client->getBalance());
-    }
-
     public function testGetBalanceException()
     {
         $client = new \BulkSmsCenter\Client($this->mockAuth);
         $this->expectException($this->exception);
         $client->getBalance();
+    }
+
+    public function testGetBalance()
+    {
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $this->assertInternalType('float',$client->getBalance());
     }
 
     public function testSendWithoutMessage()

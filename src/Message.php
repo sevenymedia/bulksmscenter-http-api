@@ -74,11 +74,14 @@ class Message
     }
 
     /**
-     * @param string $body
+     * @param $body
+     *
+     * @return $this
      */
     public function setBody($body)
     {
         $this->body = $body;
+        return $this;
     }
 
     /**
@@ -90,11 +93,14 @@ class Message
     }
 
     /**
-     * @param array $options
+     * @param $options
+     *
+     * @return $this
      */
     public function setOptions($options)
     {
         $this->options = $options;
+        return $this;
     }
 
     /**
@@ -106,11 +112,14 @@ class Message
     }
 
     /**
-     * @param string $recipient
+     * @param $recipient
+     *
+     * @return $this
      */
     public function setRecipient($recipient)
     {
         $this->recipient = $recipient;
+        return $this;
     }
 
     /**
@@ -141,10 +150,13 @@ class Message
     }
 
     /**
-     * @param string $sender
+     * @param $sender
+     *
+     * @return $this
      */
     public function setSender($sender)
     {
         $this->sender = $sender;
+        return $this;
     }
 }

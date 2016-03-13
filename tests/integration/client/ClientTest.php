@@ -51,6 +51,12 @@ class ClientTest extends BaseTest
         $this->client->getMessageStatus(env('TEST_MESSAGE_ID'));
     }
 
+    public function testGetMessageStatus()
+    {
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $this->assertEquals(100,$client->getMessageStatus(env('TEST_MESSAGE_ID')));
+    }
+
     public function testSendWithoutMessage()
     {
         $oldMessage = $this->client->getMessage();

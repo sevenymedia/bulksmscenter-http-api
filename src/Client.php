@@ -6,6 +6,8 @@ class Client
 {
     const VERSION = '0.1';
 
+    const RESPONSE_KEY__CODE = 'APIcode';
+
     const ROUTE_DIRECT = 'direct';
     const ROUTE_PREMIUM = 'premium';
 

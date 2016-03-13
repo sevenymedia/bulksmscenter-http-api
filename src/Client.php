@@ -36,6 +36,19 @@ class Client
         return 'PHP/'.PHP_VERSION_ID;
     }
 
+    protected function validApiCode($code = 1000)
+    {
+        $key = 'APIcode';
+        $response = $this->getHttpClient()->getApiResponse();
+        switch (true) {
+            case !isset($response[$key]):
+            case (int)$response[$key] !== $code:
+                return false;
+            default:
+                return true;
+        }
+    }
+
     public function __construct(Auth $auth = null,HttpClient $httpClient = null)
     {
         if ($httpClient !== null) {

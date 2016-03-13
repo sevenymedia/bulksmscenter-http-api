@@ -151,7 +151,7 @@ class Client
             throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
         }
 
-        $message->setId($response[static::RESPONSE_KEY__ID]);
+        $message->setId($response[static::RESPONSE_KEY__ID])->setSent();
         return true;
     }
 

@@ -8,6 +8,7 @@ class Client
 
     const RESPONSE_KEY__CODE = 'APIcode';
     const RESPONSE_KEY__CREDITS = 'APIcredits';
+    const RESPONSE_KEY__ID = 'APIsmsID';
 
     const ROUTE_DIRECT = 'direct';
     const ROUTE_PREMIUM = 'premium';

@@ -40,6 +40,16 @@ class Client
         return 'PHP/'.PHP_VERSION_ID;
     }
 
+    protected function apiCode()
+    {
+        $key = static::RESPONSE_KEY__CODE;
+        $response = $this->getHttpClient()->getApiResponse();
+        if (isset($response[$key])) {
+            return $response[$key];
+        }
+        return 0000;
+    }
+
     protected function validApiCode($code = 1000)
     {
         $key = static::RESPONSE_KEY__CODE;

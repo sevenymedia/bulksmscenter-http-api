@@ -35,9 +35,8 @@ class ClientTest extends BaseTest
 
     public function testGetBalanceException()
     {
-        $client = new \BulkSmsCenter\Client($this->mockAuth);
         $this->expectException($this->exception);
-        $client->getBalance();
+        $this->client->getBalance();
     }
 
     public function testGetBalance()

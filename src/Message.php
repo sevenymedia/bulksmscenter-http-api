@@ -37,6 +37,11 @@ class Message
      */
     protected $sender;
 
+    /**
+     * @var boolean
+     */
+    protected $sent;
+
     public function __construct(array $arrOptions = [])
     {
         foreach ($arrOptions as $strKey => $mixValue) {
@@ -163,6 +168,20 @@ class Message
     public function setSender($sender)
     {
         $this->sender = $sender;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getSent()
+    {
+        return $this->sent;
+    }
+
+    public function setSent($sent = true)
+    {
+        $this->sent = $sent;
         return $this;
     }
 }

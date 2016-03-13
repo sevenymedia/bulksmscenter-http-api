@@ -1,7 +1,5 @@
 <?php
 
-use BulkSmsCenter\Exceptions\HttpClientException;
-
 class HttpClientTest extends BaseTest
 {
     protected $exception;
@@ -35,7 +33,7 @@ class HttpClientTest extends BaseTest
 //    public function testInvalidCommand()
 //    {
 //        $httpClient = new \BulkSmsCenter\HttpClient($this->mockAuth);
-//        $this->expectException($this->exception,HttpClientException::CODE__NO_OK_RECEIVED);
+//        $this->expectException($this->exception,\BulkSmsCenter\Exceptions\HttpClientException::CODE__NO_OK_RECEIVED);
 //        $httpClient->runCommand('test_command');
 //    }
 }

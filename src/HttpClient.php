@@ -159,9 +159,13 @@ class HttpClient
         return $this;
     }
 
-    public function addHost($host)
+    public function addHosts($hosts)
     {
-        $this->hosts[] = $host;
+        if (!is_array($hosts)) {
+            $hosts = [$hosts,];
+        }
+        $this->hosts = array_merge($this->hosts,$hosts);
+        return $this;
     }
 
     /**

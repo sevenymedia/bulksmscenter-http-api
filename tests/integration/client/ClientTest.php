@@ -39,9 +39,9 @@ class ClientTest extends BaseTest
     public function testSendWithoutMessage()
     {
         $exception = "{$this->namespace}\Exceptions\ClientException";
-        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
-
+        $oldMessage = $this->client->getMessage();
         $this->expectException($exception);
-        $client->clearMessage()->sendMessage();
+        $this->client->clearMessage()->sendMessage();
+        $this->client->setMessage($oldMessage);
     }
 }

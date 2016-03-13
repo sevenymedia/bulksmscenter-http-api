@@ -52,15 +52,8 @@ class Client
 
     protected function validApiCode($code = 1000)
     {
-        $key = static::RESPONSE_KEY__CODE;
-        $response = $this->getHttpClient()->getApiResponse();
-        switch (true) {
-            case !isset($response[$key]):
-            case (int)$response[$key] !== $code:
-                return false;
-            default:
-                return true;
-        }
+        $apiCode = $this->apiCode();
+        return (int)$apiCode === (int)$code;
     }
 
     public function __construct(Auth $auth = null,HttpClient $httpClient = null)

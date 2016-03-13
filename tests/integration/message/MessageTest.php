@@ -66,4 +66,11 @@ class MessageTest extends BaseTest
         $message->setSender($expected = '3161234567890');
         $this->assertEquals($expected,$message->getSender());
     }
+
+    public function testSetGetSent()
+    {
+        $message = new \BulkSmsCenter\Message();
+        $message->setSent(true);
+        $this->assertTrue($message->getSent());
+    }
 }

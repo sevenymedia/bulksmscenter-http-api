@@ -28,6 +28,11 @@ class Message
     /**
      * @var string
      */
+    protected $route;
+
+    /**
+     * @var string
+     */
     protected $sender;
 
     public function __construct(array $arrOptions = [])
@@ -106,6 +111,25 @@ class Message
     public function setRecipient($recipient)
     {
         $this->recipient = $recipient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoute()
+    {
+        return $this->route ?: $this->setRoute(static::TYPE_PREMIUM);
+    }
+
+    /**
+     * @param $route
+     *
+     * @return $this
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+        return $this;
     }
 
     /**

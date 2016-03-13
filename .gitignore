@@ -5,6 +5,7 @@
 .env
 *.sample*
 phpunit/coverage/
+phpunit/clover.xml
 
 
 

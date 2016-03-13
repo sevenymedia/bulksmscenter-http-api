@@ -44,9 +44,8 @@ class ClientTest extends BaseTest
 
     public function testSendWithoutMessage()
     {
-        $exception = "{$this->namespace}\Exceptions\ClientException";
         $oldMessage = $this->client->getMessage();
-        $this->expectException($exception);
+        $this->expectException("{$this->namespace}\Exceptions\ClientException");
         $this->client->clearMessage()->sendMessage();
         $this->client->setMessage($oldMessage);
     }

@@ -2,6 +2,14 @@
 
 class MessageTest extends BaseTest
 {
+    protected $exception;
+
+    public function setUp()
+    {
+        parent::setup();
+        $this->exception = "{$this->namespace}\Exceptions\MessageException";
+    }
+
     public function testConstructor()
     {
         $message = new \BulkSmsCenter\Message();
@@ -56,7 +64,7 @@ class MessageTest extends BaseTest
     public function testSetInvalidRoute()
     {
         $message = new \BulkSmsCenter\Message();
-        $this->expectException("{$this->namespace}\Exceptions\MessageException");
+        $this->expectException($this->exception);
         $message->setRoute('test');
     }
 

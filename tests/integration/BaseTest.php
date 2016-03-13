@@ -17,6 +17,15 @@ class BaseTest extends PHPUnit_Framework_TestCase
      */
     protected $namespace = 'BulkSmsCenter';
 
+    public function expectException($exception)
+    {
+        if (version_compare(PHPUnit_Runner_Version::id(),'5.2') === -1) {
+            $this->setExpectedException($exception);
+        } else {
+            parent::expectException($exception);
+        }
+    }
+
     public function setUp()
     {
         $this->mockAuth = $this->getMockBuilder('\\'.$this->namespace.'\\Auth')->setConstructorArgs([

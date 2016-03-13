@@ -35,4 +35,13 @@ class ClientTest extends BaseTest
         $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
         $this->assertInternalType('float',$client->getBalance());
     }
+
+    public function testSendWithoutMessage()
+    {
+        $exception = "{$this->namespace}\Exceptions\ClientException";
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+
+        $this->expectException($exception);
+        $client->clearMessage()->sendMessage();
+    }
 }

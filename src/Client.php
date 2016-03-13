@@ -135,22 +135,24 @@ class Client
             throw new ClientException('No message set');
         }
 
-        $request = $this->runCommand('sms_send_sms',[
-            'to' => $this->message->getRecipient(),
-            'message' => $this->message->getBody(),
-            'from' => $this->message->getSender(),
-            'route' => $this->route(),
-        ]);
-        if ($request === false) {
-            throw new ClientException('Failed to send message');
+        $httpClient = $this->getHttpClient();
+        $message = $this->getMessage();
+        if ($httpClient->runCommand('sms_send_sms',[
+            'to' => $message->getRecipient(),
+            'message' => $message->getBody(),
+            'from' => $message->getSender(),
+            'route' => $message->getRoute(),
+        ]) === false) {
+            return false;
         }
 
-        $this->setRawResponse($request->getBody()->getContents());
+        $response = $httpClient->getApiResponse();
+        if ($this->validApiCode() === false) {
+            throw new ClientException("Got an invalid API code ({$response[static::RESPONSE_KEY__CODE]})");
+        }
 
-        $response = $this->getResponse();
-        $this->message->setId($response['APIsmsID']);
-
-        return $this;
+        $message->setId($response[static::RESPONSE_KEY__ID]);
+        return true;
     }
 
     public function getApiCode()

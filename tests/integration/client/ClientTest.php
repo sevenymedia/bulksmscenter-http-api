@@ -70,4 +70,18 @@ class ClientTest extends BaseTest
         $this->expectException($this->exception);
         $this->client->sendMessage($this->mockMessage);
     }
+
+    public function testSendMessage()
+    {
+        if (env('TEST_REAL_SEND') === false) {
+            $this->assertTrue(true);
+            return;
+        }
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $this->assertTrue($client->sendMessage((new \BulkSmsCenter\Message([
+            'body' => 'PHPUnit test message (sent at: '.date('c').')',
+            'recipient' => '31612345678',
+            'sender' => '31628229299',
+        ]))) && $client->getMessage()->getSent());
+    }
 }

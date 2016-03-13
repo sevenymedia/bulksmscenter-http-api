@@ -162,8 +162,8 @@ class Client
             return false;
         }
         $response = $httpClient->getApiResponse();
-        if (isset($response['APIcredits'])) {
-            return (float)$response['APIcredits'];
+        if (isset($response[$key = static::RESPONSE_KEY__CREDITS])) {
+            return (float)$response[$key];
         }
         return false;
     }

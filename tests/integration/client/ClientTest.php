@@ -7,10 +7,13 @@ class ClientTest extends BaseTest
      */
     protected $client;
 
+    protected $exception;
+
     public function setUp()
     {
         parent::setup();
         $this->client = new \BulkSmsCenter\Client($this->mockAuth,$this->mockClient);
+        $this->exception = "{$this->namespace}\Exceptions\ClientException";
     }
 
     public function testConstructor()
@@ -45,7 +48,7 @@ class ClientTest extends BaseTest
     public function testSendWithoutMessage()
     {
         $oldMessage = $this->client->getMessage();
-        $this->expectException("{$this->namespace}\Exceptions\ClientException");
+        $this->expectException($this->exception);
         $this->client->clearMessage()->sendMessage();
         $this->client->setMessage($oldMessage);
     }

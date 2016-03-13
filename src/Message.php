@@ -179,6 +179,11 @@ class Message
         return $this->sent;
     }
 
+    /**
+     * @param bool $sent
+     *
+     * @return $this
+     */
     public function setSent($sent = true)
     {
         $this->sent = $sent;

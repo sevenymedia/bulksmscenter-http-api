@@ -185,8 +185,11 @@ class HttpClient
             }
 
             $response = $this->setResponse($response)->getResponse();
-            if ($response->getStatusCode() !== 200) {
-                throw new HttpClientException("Did not receive '200 OK' from {$host}");
+            if (($code = $response->getStatusCode()) !== 200) {
+                throw new HttpClientException(
+                    sprintf(HttpClientException::MESSAGE__NO_OK_RECEIVED,$code,$host),
+                    HttpClientException::CODE__NO_OK_RECEIVED
+                );
             }
             $this->setRawResponse($response->getBody()->getContents());
             return true;

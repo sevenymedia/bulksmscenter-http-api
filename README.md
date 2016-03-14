@@ -7,3 +7,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/sevenymedia/bulksmscenter-http-api/v/unstable.svg)](https://packagist.org/packages/sevenymedia/bulksmscenter-http-api)
 
 This repository contains an unofficial open source PHP client for the BulkSMSCenter HTTP API
+
+## License
+
+This client is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

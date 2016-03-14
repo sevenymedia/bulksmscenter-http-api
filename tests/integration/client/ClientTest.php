@@ -80,8 +80,8 @@ class ClientTest extends BaseTest
         $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('TEST_USERNAME'),env('TEST_PASSWORD')));
         $this->assertTrue($client->sendMessage((new \BulkSmsCenter\Message([
             'body' => 'PHPUnit test message (sent at: '.date('c').')',
-            'recipient' => '31612345678',
-            'sender' => '31628229299',
+            'recipient' => env('TEST_SENDER'),
+            'sender' => env('TEST_RECIPIENT'),
         ]))) && $client->getMessage()->getSent());
     }
 }

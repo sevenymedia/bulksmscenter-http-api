@@ -40,8 +40,8 @@ class BaseTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->mockAuth = $this->getMockBuilder('\\'.$this->namespace.'\\Auth')->setConstructorArgs([
-            'YOUR_USERNAME',
-            'YOUR_PASSWORD',
+            env('TEST_USERNAME'),
+            env('TEST_PASSWORD'),
         ])->getMock();
         $this->mockClient = $this->getMockBuilder('\\'.$this->namespace.'\\HttpClient')->getMock();
         $this->mockMessage = $this->getMockBuilder('\\'.$this->namespace.'\\Message')->getMock();

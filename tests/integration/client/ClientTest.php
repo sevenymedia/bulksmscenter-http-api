@@ -41,7 +41,7 @@ class ClientTest extends BaseTest
 
     public function testGetBalance()
     {
-        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('TEST_USERNAME'),env('TEST_PASSWORD')));
         $this->assertInternalType('float',$client->getBalance());
     }
 
@@ -53,7 +53,7 @@ class ClientTest extends BaseTest
 
     public function testGetMessageStatus()
     {
-        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('TEST_USERNAME'),env('TEST_PASSWORD')));
         $this->assertEquals(100,$client->getMessageStatus(env('TEST_MESSAGE_ID')));
     }
 
@@ -77,7 +77,7 @@ class ClientTest extends BaseTest
             $this->assertTrue(true);
             return;
         }
-        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('USERNAME'),env('PASSWORD')));
+        $client = new \BulkSmsCenter\Client($auth = new \BulkSmsCenter\Auth(env('TEST_USERNAME'),env('TEST_PASSWORD')));
         $this->assertTrue($client->sendMessage((new \BulkSmsCenter\Message([
             'body' => 'PHPUnit test message (sent at: '.date('c').')',
             'recipient' => '31612345678',

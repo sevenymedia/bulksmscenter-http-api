@@ -8,6 +8,10 @@
 
 This repository contains an unofficial open source PHP client for the BulkSMSCenter HTTP API
 
+## Official Documentation
+
+Documentation for the framework can be found on the [BulkSMSCenter website](https://www.bulksmscenter.nl/informatie/verzendopties/).
+
 ## License
 
 This client is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

@@ -21,12 +21,12 @@
         "vlucas/phpdotenv": "^2.2"
     },
     "autoload": {
-        "files": ["src/helpers.php"],
         "psr-4": {
             "BulkSmsCenter\\": "src/"
         }
     },
     "autoload-dev": {
+        "files": ["tests/helpers.php"],
         "psr-4": {
             "BulkSmsCenter\\Tests\\": "tests/"
         }

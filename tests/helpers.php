@@ -1,4 +1,4 @@
-<?php
+<?php namespace BulkSmsCenter\Tests;
 
 if (!function_exists('env')) {
     function env($key,$default = null)
@@ -46,6 +46,6 @@ if (!function_exists('str_random')) {
 if (! function_exists('value')) {
     function value($value)
     {
-        return $value instanceof Closure ? $value() : $value;
+        return $value instanceof \Closure ? $value() : $value;
     }
 }

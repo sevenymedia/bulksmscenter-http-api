@@ -1,7 +1,6 @@
 {
     "name": "sevenymedia/bulksmscenter-http-api",
     "description": "This repository contains the open source PHP client for the BulkSMSCenter HTTP API",
-    "version": "0.1.0",
     "type": "library",
     "homepage": "https://github.com/sevenymedia/bulksmscenter-http-api",
     "license": "MIT",

@@ -175,8 +175,8 @@ class Client
     {
         $httpClient = $this->getHttpClient();
         if ($httpClient->runCommand('sms_get_dlr',[
-                'smsid' => $messageId,
-            ]) === false) {
+            'smsid' => $messageId,
+        ]) === false) {
             return false;
         }
 

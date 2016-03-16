@@ -6,6 +6,7 @@
 [![Build Status](https://img.shields.io/travis/sevenymedia/bulksmscenter-http-api.svg)](https://packagist.org/packages/sevenymedia/bulksmscenter-http-api)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/3e88b997-922a-4870-8502-6650dd7e647d.svg)](https://insight.sensiolabs.com/projects/3498f336-4466-47c0-9209-87130710af90)
 [![Total Downloads](https://img.shields.io/packagist/dt/sevenymedia/bulksmscenter-http-api.svg)](https://packagist.org/packages/sevenymedia/bulksmscenter-http-api)
+[![Software License](https://img.shields.io/packagist/l/sevenymedia/bulksmscenter-http-api.svg)](LICENSE.md)
 
 This repository contains an unofficial open source PHP client for the BulkSMSCenter HTTP API
 

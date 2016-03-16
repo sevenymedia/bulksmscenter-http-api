@@ -4,7 +4,7 @@ use BulkSmsCenter\Exceptions\ClientException;
 
 class Client
 {
-    const VERSION = '0.1.1';
+    const VERSION = '1.0.1';
 
     const RESPONSE_KEY__CODE = 'APIcode';
     const RESPONSE_KEY__CREDITS = 'APIcredits';

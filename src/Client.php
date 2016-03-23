@@ -2,6 +2,11 @@
 
 use BulkSmsCenter\Exceptions\ClientException;
 
+/**
+ * Class Client
+ *
+ * @package sevenymedia/bulksmscenter-http-api
+ */
 class Client
 {
     const VERSION = '1.0.2';

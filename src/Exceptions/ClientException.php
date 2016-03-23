@@ -3,7 +3,7 @@
 /**
  * Class ClientException
  *
- * @package BulkSmsCenter\Exceptions
+ * @package sevenymedia/bulksmscenter-http-api
  */
 class ClientException extends BulkSmsCenterException
 {

@@ -1,5 +1,10 @@
 <?php namespace BulkSmsCenter;
 
+/**
+ * Class Auth
+ *
+ * @package sevenymedia/bulksmscenter-http-api
+ */
 class Auth
 {
     /**

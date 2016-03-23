@@ -3,7 +3,7 @@
 /**
  * Class BulkSmsCenterException
  *
- * @package BulkSmsCenter\Exceptions
+ * @package sevenymedia/bulksmscenter-http-api
  */
 abstract class BulkSmsCenterException extends \Exception
 {

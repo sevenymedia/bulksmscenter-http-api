@@ -2,6 +2,11 @@
 
 use BulkSmsCenter\Exceptions\MessageException;
 
+/**
+ * Class Message
+ *
+ * @package sevenymedia/bulksmscenter-http-api
+ */
 class Message
 {
     const TYPE_DIRECT = 'direct';

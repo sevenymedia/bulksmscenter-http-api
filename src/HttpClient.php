@@ -2,6 +2,11 @@
 
 use BulkSmsCenter\Exceptions\HttpClientException;
 
+/**
+ * Class HttpClient
+ *
+ * @package sevenymedia/bulksmscenter-http-api
+ */
 class HttpClient
 {
     /**

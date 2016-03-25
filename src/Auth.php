@@ -8,15 +8,25 @@
 class Auth
 {
     /**
+     * Contains API password
+     *
      * @var string
      */
     protected $password;
 
     /**
+     * Contains API username
+     * 
      * @var string
      */
     protected $username;
 
+    /**
+     * Auth constructor.
+     *
+     * @param $username
+     * @param $password
+     */
     public function __construct($username,$password)
     {
         $this->setUsername($username);
@@ -24,6 +34,8 @@ class Auth
     }
 
     /**
+     * Get API password
+     *
      * @return string
      */
     public function getPassword()
@@ -32,6 +44,8 @@ class Auth
     }
 
     /**
+     * Set API password
+     *
      * @param $password
      *
      * @return $this
@@ -43,6 +57,8 @@ class Auth
     }
 
     /**
+     * Get API username
+     *
      * @return string
      */
     public function getUsername()
@@ -51,6 +67,8 @@ class Auth
     }
 
     /**
+     * Set API username
+     *
      * @param $username
      *
      * @return $this

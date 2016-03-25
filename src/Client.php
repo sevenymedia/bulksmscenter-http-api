@@ -9,32 +9,83 @@ use BulkSmsCenter\Exceptions\ClientException;
  */
 class Client
 {
+    /**
+     * Contains package version
+     *
+     * @var string
+     */
     const VERSION = '1.0.2';
 
+    /**
+     * Response key for the API code
+     *
+     * @var string
+     */
     const RESPONSE_KEY__CODE = 'APIcode';
+
+    /**
+     * Response key for API credits
+     *
+     * @var string
+     */
     const RESPONSE_KEY__CREDITS = 'APIcredits';
+
+    /**
+     * Response key for API message ID
+     *
+     * @var string
+     */
     const RESPONSE_KEY__ID = 'APIsmsID';
+
+    /**
+     * Response key for the API status
+     *
+     * @var string
+     */
     const RESPONSE_KEY__STATUS = 'APIstatus';
 
+    /**
+     * Direct route value
+     * 1.2 credits
+     * Delivery guarantee of 99.99%.
+     *
+     * @var string
+     */
     const ROUTE_DIRECT = 'direct';
+
+    /**
+     * Premium route value
+     * 1 credit
+     * Delivery guarantee of 99%.
+     *
+     * @var string
+     */
     const ROUTE_PREMIUM = 'premium';
 
     /**
+     * Contains an instance of HttpClient
+     *
      * @var HttpClient
      */
     protected $httpClient;
 
     /**
+     * Contains an instance of Message
+     *
      * @var Message
      */
     protected $message;
 
     /**
+     * Contains data which will be posted to the API
+     *
      * @var array
      */
     protected $postData;
 
     /**
+     * Returns a stringified PHP version
+     *
      * @return string
      */
     private function phpVersion()
@@ -46,6 +97,11 @@ class Client
         return 'PHP/'.PHP_VERSION_ID;
     }
 
+    /**
+     * Returns the API code from the latest request
+     *
+     * @return int
+     */
     protected function apiCode()
     {
         $key = static::RESPONSE_KEY__CODE;
@@ -56,12 +112,25 @@ class Client
         return 0000;
     }
 
+    /**
+     * Checks if the given API code matches the API code from the latest request
+     *
+     * @param int $code
+     *
+     * @return bool
+     */
     protected function validApiCode($code = 1000)
     {
         $apiCode = $this->apiCode();
         return (int)$apiCode === (int)$code;
     }
 
+    /**
+     * Client constructor.
+     *
+     * @param Auth|null $auth
+     * @param HttpClient|null $httpClient
+     */
     public function __construct(Auth $auth = null,HttpClient $httpClient = null)
     {
         if ($httpClient !== null) {
@@ -77,12 +146,19 @@ class Client
         $this->setMessage(new Message());
     }
 
+    /**
+     * Get an instance of HttpClient
+     *
+     * @return HttpClient
+     */
     public function getHttpClient()
     {
         return $this->httpClient ?: $this->httpClient = new HttpClient();
     }
 
     /**
+     * Set the HttpClient instance to use in the request
+     *
      * @param HttpClient $httpClient
      *
      * @return $this
@@ -94,6 +170,8 @@ class Client
     }
 
     /**
+     * Get the Message instance
+     *
      * @return Message
      */
     public function getMessage()
@@ -101,6 +179,11 @@ class Client
         return $this->message;
     }
 
+    /**
+     * Clear the Message instance
+     *
+     * @return $this
+     */
     public function clearMessage()
     {
         $this->message = null;
@@ -108,6 +191,8 @@ class Client
     }
 
     /**
+     * Set the Message instance to use in the request
+     *
      * @param Message $message
      *
      * @return $this
@@ -119,6 +204,8 @@ class Client
     }
 
     /**
+     * Send the given message, if no Message instance given than the instance from the object will be used
+     *
      * @param Message|null $message
      *
      * @return $this
@@ -156,6 +243,13 @@ class Client
         return true;
     }
 
+    /**
+     * Get amount of remaining credits from the API
+     *
+     * @return bool|float
+     * @throws ClientException
+     * @throws Exceptions\HttpClientException
+     */
     public function getBalance()
     {
         $httpClient = $this->getHttpClient();
@@ -176,6 +270,15 @@ class Client
         return false;
     }
 
+    /**
+     * Get the delivery status of the given Message ID
+     *
+     * @param $messageId
+     *
+     * @return bool|int
+     * @throws ClientException
+     * @throws Exceptions\HttpClientException
+     */
     public function getMessageStatus($messageId)
     {
         $httpClient = $this->getHttpClient();

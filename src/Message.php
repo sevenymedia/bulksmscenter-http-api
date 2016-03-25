@@ -9,44 +9,79 @@ use BulkSmsCenter\Exceptions\MessageException;
  */
 class Message
 {
+    /**
+     * Value of a direct message
+     * 1.2 credits
+     * Delivery guarantee of 99.99%.
+     *
+     * @var string
+     */
     const TYPE_DIRECT = 'direct';
+
+    /**
+     * Value of a premium message
+     * 1 credit
+     * Delivery guarantee of 99%.
+     *
+     * @var string
+     */
     const TYPE_PREMIUM = 'premium';
 
     /**
+     * Will contain the Message ID received from API
+     *
      * @var string
      */
     protected $id;
 
     /**
+     * Will contain the Message body text
+     *
      * @var string
      */
     protected $body;
 
     /**
+     * Will contain some options
+     * Might be used in the future
+     *
      * @var array
      */
     protected $options;
 
     /**
+     * Will contain the Message recipient
+     *
      * @var string
      */
     protected $recipient;
 
     /**
+     * Will contain the type of Message (direct/premium)
+     *
      * @var string
      */
     protected $type;
 
     /**
+     * Will contain the sender of the Message
+     *
      * @var string
      */
     protected $sender;
 
     /**
+     * Will contain the 'sent' status
+     *
      * @var boolean
      */
     protected $sent;
 
+    /**
+     * Message constructor.
+     *
+     * @param array $arrOptions
+     */
     public function __construct(array $arrOptions = [])
     {
         foreach ($arrOptions as $strKey => $mixValue) {
@@ -59,6 +94,8 @@ class Message
     }
 
     /**
+     * Return the Message ID received from the API
+     *
      * @return string
      */
     public function getId()
@@ -67,6 +104,8 @@ class Message
     }
 
     /**
+     * Sets the Message ID received from the API
+     *
      * @param $id
      *
      * @return $this
@@ -78,6 +117,8 @@ class Message
     }
 
     /**
+     * Returns the Message body
+     *
      * @return string
      */
     public function getBody()
@@ -86,6 +127,8 @@ class Message
     }
 
     /**
+     * Set the Message body
+     *
      * @param $body
      *
      * @return $this
@@ -97,6 +140,8 @@ class Message
     }
 
     /**
+     * Returns some options
+     *
      * @return array
      */
     public function getOptions()
@@ -105,6 +150,8 @@ class Message
     }
 
     /**
+     * Set some options
+     *
      * @param $options
      *
      * @return $this
@@ -116,6 +163,8 @@ class Message
     }
 
     /**
+     * Returns the Message recipient
+     *
      * @return string
      */
     public function getRecipient()
@@ -124,6 +173,8 @@ class Message
     }
 
     /**
+     * Set the Message recipient
+     *
      * @param $recipient
      *
      * @return $this
@@ -135,6 +186,8 @@ class Message
     }
 
     /**
+     * Returns the Message type (direct/premium)
+     *
      * @return string
      */
     public function getType()
@@ -143,6 +196,8 @@ class Message
     }
 
     /**
+     * Set the Message type (direct/premium)
+     *
      * @param $type
      *
      * @return $this
@@ -158,6 +213,8 @@ class Message
     }
 
     /**
+     * Get the sender of the Message
+     *
      * @return string
      */
     public function getSender()
@@ -166,6 +223,8 @@ class Message
     }
 
     /**
+     * Set the sender of the Message
+     *
      * @param $sender
      *
      * @return $this
@@ -177,6 +236,8 @@ class Message
     }
 
     /**
+     * Returns if Message has been sent
+     *
      * @return boolean
      */
     public function getSent()
@@ -185,6 +246,8 @@ class Message
     }
 
     /**
+     * Set 'sent' status
+     * 
      * @param bool $sent
      *
      * @return $this

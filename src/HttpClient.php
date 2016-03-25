@@ -10,56 +10,81 @@ use BulkSmsCenter\Exceptions\HttpClientException;
 class HttpClient
 {
     /**
+     * Will contain an instance of Auth which will be used to authenticate to the API
+     *
      * @var Auth
      */
     protected $auth;
 
     /**
+     * Contains one or more API hosts
+     *
      * @var array
      */
     protected $hosts = ['api.ek-media.nl',];
 
     /**
+     * Contains the port which will be used to connect to the API
+     *
      * @var int
      */
     protected $port = 443;
 
     /**
+     * Will contain the protocol (http/https) which will be used to connect to the API
+     *
      * @var string
      */
     protected $protocol;
 
     /**
+     * Will contain the plain API response after a request has been executed
+     *
      * @var string
      */
     protected $rawResponse;
 
     /**
+     * Will contain an instance of Guzzle response
+     *
      * @var Response
      */
     protected $response;
 
     /**
+     * Will contain parsed API response
+     *
      * @var array
      */
     protected $apiResponse;
 
     /**
+     * Will contain the user agent string which will be send when connecting to the API
+     *
      * @var string
      */
     protected $userAgent;
 
     /**
+     * Contains the API version
+     *
      * @var int
      */
     protected $version = 1;
 
+    /**
+     * Returns the Auth instance
+     *
+     * @return Auth
+     */
     public function auth()
     {
         return $this->auth;
     }
 
     /**
+     * Returns an array containing some post data required in all API requests
+     *
      * @return array
      */
     protected function defaultPostParams()
@@ -72,6 +97,8 @@ class HttpClient
     }
 
     /**
+     * Parse the raw API response
+     *
      * @param string|null $rawResponse
      *
      * @return array
@@ -94,6 +121,8 @@ class HttpClient
     }
 
     /**
+     * Returns the port to use to connect to the API
+     *
      * @return int
      */
     protected function port()
@@ -101,32 +130,64 @@ class HttpClient
         return $this->port === null ? $this->port = 443 : $this->port;
     }
 
+    /**
+     * Returns the protocol to use to connect to the API
+     *
+     * @return string
+     */
     protected function protocol()
     {
         return $this->protocol === null ? $this->protocol = 'http'.($this->ssl() ? 's' : '') : $this->protocol;
     }
 
+    /**
+     * Returns if SSL should be used
+     *
+     * @return bool
+     */
     protected function ssl()
     {
         return $this->port() === 443;
     }
 
+    /**
+     * Returns the API version to use in requests
+     *
+     * @return int
+     */
     protected function version()
     {
         return $this->version;
     }
 
+    /**
+     * Save API raw response
+     *
+     * @param $rawResponse
+     */
     protected function setRawResponse($rawResponse)
     {
         $this->rawResponse = $rawResponse;
     }
 
+    /**
+     * Save parsed API response
+     *
+     * @param $response
+     *
+     * @return $this
+     */
     protected function setResponse($response)
     {
         $this->response = $response;
         return $this;
     }
 
+    /**
+     * HttpClient constructor.
+     *
+     * @param Auth|null $auth
+     */
     public function __construct(Auth $auth = null)
     {
         if ($auth !== null) {
@@ -135,6 +196,8 @@ class HttpClient
     }
 
     /**
+     * Set Auth object to use for requests
+     *
      * @param Auth $auth
      *
      * @return $this
@@ -146,6 +209,8 @@ class HttpClient
     }
 
     /**
+     * Returns the API hosts
+     *
      * @return array
      */
     public function getHosts()
@@ -154,6 +219,8 @@ class HttpClient
     }
 
     /**
+     * Save API hosts to use for requests
+     *
      * @param $hosts
      *
      * @return $this
@@ -164,6 +231,13 @@ class HttpClient
         return $this;
     }
 
+    /**
+     * Add a host (or multiple hosts) to API hosts
+     *
+     * @param $hosts
+     *
+     * @return $this
+     */
     public function addHosts($hosts)
     {
         if (!is_array($hosts)) {
@@ -174,6 +248,8 @@ class HttpClient
     }
 
     /**
+     * Set user agent to use in requests
+     *
      * @param string|array $userAgent
      *
      * @return $this
@@ -187,6 +263,15 @@ class HttpClient
         return $this;
     }
 
+    /**
+     * Execute a request
+     *
+     * @param $command
+     * @param array $data
+     *
+     * @return bool
+     * @throws HttpClientException
+     */
     public function runCommand($command,$data = [])
     {
         $data = array_merge($this->defaultPostParams(),[
@@ -222,16 +307,31 @@ class HttpClient
         return false;
     }
 
+    /**
+     * Returns Guzzle response object
+     *
+     * @return Response
+     */
     public function getResponse()
     {
         return $this->response;
     }
 
+    /**
+     * Returns raw API response
+     *
+     * @return string
+     */
     public function getRawResponse()
     {
         return $this->rawResponse;
     }
 
+    /**
+     * Returns parsed API response
+     * 
+     * @return array
+     */
     public function getApiResponse()
     {
         return $this->apiResponse ?: $this->apiResponse = $this->parseRawResponse();

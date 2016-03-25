@@ -139,7 +139,7 @@ class Client
             'to' => $message->getRecipient(),
             'message' => $message->getBody(),
             'from' => $message->getSender(),
-            'route' => $message->getRoute(),
+            'route' => $message->getType(),
         ]) === false) {
             return false;
         }

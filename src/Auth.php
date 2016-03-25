@@ -16,7 +16,7 @@ class Auth
 
     /**
      * Contains API username
-     * 
+     *
      * @var string
      */
     protected $username;

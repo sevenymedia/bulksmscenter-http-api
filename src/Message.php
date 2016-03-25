@@ -247,7 +247,7 @@ class Message
 
     /**
      * Set 'sent' status
-     * 
+     *
      * @param bool $sent
      *
      * @return $this

@@ -329,7 +329,7 @@ class HttpClient
 
     /**
      * Returns parsed API response
-     * 
+     *
      * @return array
      */
     public function getApiResponse()

@@ -35,7 +35,7 @@ class Message
     /**
      * @var string
      */
-    protected $route;
+    protected $type;
 
     /**
      * @var string
@@ -137,23 +137,23 @@ class Message
     /**
      * @return string
      */
-    public function getRoute()
+    public function getType()
     {
-        return $this->route ?: $this->setRoute(static::TYPE_PREMIUM);
+        return $this->type ?: $this->setType(static::TYPE_PREMIUM);
     }
 
     /**
-     * @param $route
+     * @param $type
      *
      * @return $this
      * @throws MessageException
      */
-    public function setRoute($route)
+    public function setType($type)
     {
-        if (!in_array($route,[static::TYPE_DIRECT,static::TYPE_PREMIUM,])) {
+        if (!in_array($type,[static::TYPE_DIRECT,static::TYPE_PREMIUM,])) {
             throw new MessageException(MessageException::MESSAGE__INVALID_ROUTE,MessageException::CODE__INVALID_ROUTE);
         }
-        $this->route = $route;
+        $this->type = $type;
         return $this;
     }
 

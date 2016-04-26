@@ -1,0 +1,14 @@
+; custom @package docblock value
+; package = Custom.Name
+
+; commands to use for phpunit and phpdoc
+; [commands]
+; phpunit = /path/to/phpunit
+; phpdoc = /path/to/phpdoc
+
+; names for support files
+[files]
+changes = CHANGES.md
+license = LICENSE.md
+phpunit = phpunit.xml.dist
+readme = README.md

@@ -1,4 +1,4 @@
-## 1.0.5
+## 1.0.6
 Added CHANGES.md to log changes
 
 ## 1.0.4

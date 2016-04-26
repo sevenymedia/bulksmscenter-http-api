@@ -9,6 +9,7 @@
 ; names for support files
 [files]
 changes = CHANGES.md
+contributing = README.md
 license = LICENSE.md
 phpunit = phpunit.xml.dist
 readme = README.md

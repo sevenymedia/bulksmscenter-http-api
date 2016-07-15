@@ -1,3 +1,6 @@
+## 1.0.7
+Added DependencyCI to README.md
+
 ## 1.0.6
 Added CHANGES.md to log changes
 

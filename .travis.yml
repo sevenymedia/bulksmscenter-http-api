@@ -49,6 +49,7 @@ php:
   - nightly
 
 script:
+  - ./bin/travis/fail-non-feature-topic-branch-pull-request
   - phpunit
   - php ./phpunit/coverage-check.php ./phpunit/clover.xml 80
 

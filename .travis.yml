@@ -51,6 +51,6 @@ php:
 script:
   - ./bin/travis/fail-non-feature-topic-branch-pull-request
   - phpunit
-  - php ./phpunit/coverage-check.php ./phpunit/clover.xml 80
+  - php ./bin/phpunit/coverage-check.php ./phpunit/clover.xml 80
 
 sudo: false

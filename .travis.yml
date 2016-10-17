@@ -1,11 +1,3 @@
-language: php
-
-php:
-  - 5.6
-  - 7.0
-  - hhvm
-  - nightly
-
 env:
   global:
     - SETUP=basic
@@ -23,6 +15,13 @@ env:
     - TEST_SENDER=0612345678
     - TEST_RECIPIENT=0612345678
 
+install:
+  - if [[ $SETUP = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
+  - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
+  - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable; fi
+
+language: php
+
 matrix:
   allow_failures:
     - php: nightly
@@ -35,13 +34,14 @@ matrix:
 #    - os: osx
 #      osx_image: xcode7.2
 
-sudo: false
-
-install:
-  - if [[ $SETUP = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
-  - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
-  - if [[ $SETUP = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable; fi
+php:
+  - 5.6
+  - 7.0
+  - hhvm
+  - nightly
 
 script:
   - phpunit
   - php ./phpunit/coverage-check.php ./phpunit/clover.xml 80
+
+sudo: false

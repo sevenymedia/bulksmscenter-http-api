@@ -1,3 +1,6 @@
+## 1.1.0.2
+TravisCI script bugfix
+
 ## 1.1.0.1
 Signed tag
 

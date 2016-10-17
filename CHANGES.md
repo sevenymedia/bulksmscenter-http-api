@@ -1,3 +1,7 @@
+## 1.1.0
+* Dependency updates
+* Some TravisCI optimizations
+
 ## 1.0.9
 Dependency updates
 

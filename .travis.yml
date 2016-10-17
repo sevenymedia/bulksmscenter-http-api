@@ -15,6 +15,9 @@ env:
     - TEST_SENDER=0612345678
     - TEST_RECIPIENT=0612345678
 
+git:
+  depth: 2
+
 install:
   - if [[ $SETUP = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
   - if [[ $SETUP = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi

@@ -1,5 +1,5 @@
 ## 1.1.0.1
-* Signed tag
+Signed tag
 
 ## 1.1.0
 * Dependency updates

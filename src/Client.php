@@ -14,7 +14,7 @@ class Client
      *
      * @var string
      */
-    const VERSION = '1.1.0';
+    const VERSION = '1.1.0.1';
 
     /**
      * Response key for the API code
